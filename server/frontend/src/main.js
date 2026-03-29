@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import FloatingVue from "floating-vue";
+import { inject } from "@vercel/analytics";
 
 import router from "./router.js";
 import ActivityGraph from "./components/ActivityGraph.vue";
@@ -42,6 +43,9 @@ const app = createApp({
 
 app.use(router);
 app.use(FloatingVue);
+
+// Initialize Vercel Web Analytics
+inject();
 
 document.addEventListener("DOMContentLoaded", function () {
   app.mount("#app");
